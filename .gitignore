@@ -1,0 +1,14 @@
+# Ignorar carpetas de compilación de ROS2
+ros2_launch_ws/build/
+ros2_launch_ws/install/
+ros2_launch_ws/log/
+
+# Otros temporales
+**/__pycache__/
+**/*.pyc
+**/.vscode/
+**/.idea/
+*.bag
+*.db
+.DS_Store
+
