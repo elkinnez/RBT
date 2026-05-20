@@ -2,27 +2,28 @@ import os
 from glob import glob
 from setuptools import setup
 
-package_name = 'learning_tf2_py'
+package_name = 'mission_pkg'
 
 setup(
     name=package_name,
     version='0.0.0',
     packages=[package_name],
     data_files=[
-        ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='elkinnez',
     maintainer_email='elkinnez@example.com',
-    description='Ejemplos de tf2 en Python',
-    license='Apache License 2.0',
+    description='Misión autónoma con waypoints',
+    license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'turtle_tf2_broadcaster = learning_tf2_py.scripts.turtle_tf2_broadcaster:main',
-            'turtle_tf2_listener = learning_tf2_py.scripts.turtle_tf2_listener:main',
+            'mission_node = mission_pkg.mission_node:main',
         ],
     },
 )
